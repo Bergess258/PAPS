@@ -8,16 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Laba1Nis
+namespace Laba2
 {
     public partial class Form1 : Form
     {
-        Client client = new Client();
+
         public Form1()
         {
             InitializeComponent();
-            foreach (AbstractFactory t in client.getFactories())
-                listView1.Items.Add(t.Produce().Info());
+            ReportBuilder report = new ReportBuilder();
+            report.BuildDiagram();
+            report.BuildGraphic();
+            report.BuildText();
+            for (int i = 0; i < report.GetResult().getReport().Count; ++i)
+                listView1.Items.Add(report.GetResult().getReport()[i]);
         }
     }
 }
