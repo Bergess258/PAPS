@@ -6,6 +6,24 @@ using System.Threading.Tasks;
 
 namespace Laba2
 {
+    public class Director
+    {
+        Builder builder;
+        public Director(Builder b)
+        {
+            builder = b;
+        }
+        public void Construct()
+        {
+            builder.BuildDiagram();
+            builder.BuildGraphic();
+            builder.BuildText();
+        }
+        public List<string> GetReport()
+        {
+            return builder.GetResult().getReport();
+        }
+    }
     public abstract class Builder
     {
         public abstract void BuildDiagram();

@@ -16,12 +16,9 @@ namespace Laba2
         public Form1()
         {
             InitializeComponent();
-            ReportBuilder report = new ReportBuilder();
-            report.BuildDiagram();
-            report.BuildGraphic();
-            report.BuildText();
-            for (int i = 0; i < report.GetResult().getReport().Count; ++i)
-                listView1.Items.Add(report.GetResult().getReport()[i]);
+            Director director = new Director(new ReportBuilder());
+            for (int i = 0; i < director.GetReport().Count; ++i)
+                listView1.Items.Add(director.GetReport()[i]);
         }
     }
 }
