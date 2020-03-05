@@ -21,13 +21,17 @@ namespace Client
         }
         public CarFunction getFunction(string functionName)
         {
-            CarFunction temp = carFunctions.FirstOrDefault(p => p.getFunction() == functionName);
+            CarFunction temp = carFunctions.FirstOrDefault(p => p.getName() == functionName);
             if (temp == null)
             {
                 temp = carData.getFunction(functionName);
                 carFunctions.Add(temp);
             }
             return temp;
+        }
+        public int cachedCarFunctionsCount()
+        {
+            return carFunctions.Count;
         }
     }
     class CarData:ICarFunction
@@ -42,7 +46,7 @@ namespace Client
         }
         public CarFunction getFunction(string functionName)
         {
-            return carFunctions.FirstOrDefault(p => p.getFunction() == functionName);
+            return carFunctions.FirstOrDefault(p => p.getName() == functionName);
         }
     }
     class CarFunction
@@ -52,7 +56,7 @@ namespace Client
         {
             name = n;
         }
-        public string getFunction()
+        public string getName()
         {
             return name;
         }

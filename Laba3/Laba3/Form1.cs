@@ -21,7 +21,6 @@ namespace Laba3
             Panel MainPage = new Panel("Главная страница");
             MainPage.Add(topMenu);
             MainPage.Add(new Button("Купить"));
-            MainPage.Add(new InputText("Кол-во покупаемого товара"));
             label1.Text = MainPage.Display(0);
         }
     }
